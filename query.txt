@@ -1,0 +1,1 @@
+SELECT a.nim , a.nama_k, a.jenis_k, b.jml from point a, (select point as jml, nama,jenis from kegiatan) b where a.nama_k=b.nama and a.jenis_k=b.jenis

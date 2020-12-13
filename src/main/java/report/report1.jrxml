@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aff9cde4-5e6a-424f-8096-6ab912f3a53b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT a.nim , a.nama_k, a.jenis_k, b.jml from point a, (select point as jml, nama,jenis from kegiatan) b where a.nama_k=b.nama and a.jenis_k=b.jenis]]>
+	</queryString>
+	<field name="a.nim" class="java.lang.Object"/>
+	<field name="a.nama_k" class="java.lang.Object"/>
+	<field name="a.jenis_k" class="java.lang.Object"/>
+	<field name="b.jml" class="java.lang.Object"/>
+	<title>
+		<band height="28" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="192" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="123" y="18" width="311" height="155" uuid="c83be00d-f13b-4efb-a5b5-609d454c24e8"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{a.nama_k}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{a.nim}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{b.jml}]]></valueExpression>
+						<labelExpression><![CDATA[$F{a.nama_k}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch"/>
+	</detail>
+</jasperReport>
